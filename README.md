@@ -1,6 +1,6 @@
 # VariantCalling
 
-Project to assess best practices for variant calling and filtering.
+Project to assess best practices for variant calling and filtering on human samples of African origin and across autosomes, the sex chromosome, and mtDNA.
 
 ## Install Conda and create conda environmnet
 
@@ -16,4 +16,6 @@ conda install -c bioconda snakemake
 conda install -c conda-forge r-ggpubr
 ```
 
-Note: If using gatk3 `conda install -c bioconda gatk`. See: https://anaconda.org/bioconda/gatk
+Note: If using gatk3 `conda install -c bioconda gatk`.
+
+See: https://anaconda.org/bioconda/gatk
