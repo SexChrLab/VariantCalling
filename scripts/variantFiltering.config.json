@@ -8,6 +8,8 @@
   "thousandG": "/scratch/tphung3/PopulationReferenceAlignment/analyses/compare_hardfilter_vqsr/scripts/1000G_phase1.snps.high_confidence.hg38.vcf.gz",
   "dbsnp": "/scratch/tphung3/PopulationReferenceAlignment/analyses/compare_hardfilter_vqsr/scripts/dbsnp_138.hg38.vcf.gz",
 
+  "array_pos": "/home/amtarave/projects/variant_calling/lists/array.pos.GRCh38.txt",
+
   "autos": ["chr8"],
   "x": ["chrX"],
 

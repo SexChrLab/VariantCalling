@@ -2,12 +2,6 @@
 
 configfile: "variantFiltering.config.json"
 
-# Steps
-# plot density (2 steps: getStatsPreFilter and plotDensityPreFilter)
-# get the number of variants before filtering
-# perform VQSR
-# plot density of vqsr files
-# get the number of variants after filtering
 
 rule all:
     input:
@@ -68,12 +62,18 @@ rule all:
         expand(os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv_MQ_plot.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv_DP_statistics.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "stats_post_hard_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
-        expand(os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
+        expand(os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "raw/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "raw/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
 
 
-
-
-
+#-------------------------------------------------------------------------------
+# Get statistics of raw VCFs #
+# Get statistics of raw VCFs: Rule 1
 rule getStatsPreFilterAutos:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz")
@@ -90,7 +90,7 @@ rule getStatsPreFilterAutos:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcf} --outfile {output.stats}
         """
 
-
+# Get statistics of raw VCFs: Rule 2
 rule getStatsPreFilterXchr:
     input:
         vcf = os.path.join(config["in_vcf_dir"],"{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz")
@@ -107,7 +107,7 @@ rule getStatsPreFilterXchr:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcf} --outfile {output.stats}
         """
 
-
+# Get statistics of raw VCFs: Rule 3
 rule plotDensityPreFilterAutos:
     input:
         os.path.join(config["out_dir"], "stats_pre_filter/autosomes", "{chrs}.gatk.called.raw.{vcf_options_auto}", "{chrs}.gatk.called.raw.{vcf_options_auto}_annotations.txt")
@@ -124,7 +124,7 @@ rule plotDensityPreFilterAutos:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics of raw VCFs: Rule 4
 rule plotDensityPreFilterXchr:
     input:
         os.path.join(config["out_dir"], "stats_pre_filter/sex_chromosomes", "{chrs}.gatk.called.raw.{vcf_options_x}", "{chrs}.gatk.called.raw.{vcf_options_x}_annotations.txt")
@@ -141,7 +141,7 @@ rule plotDensityPreFilterXchr:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics of raw VCFs: Rule 5
 rule countNumSitesPreFilterAutos:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz")
@@ -152,7 +152,7 @@ rule countNumSitesPreFilterAutos:
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
 
-
+# Get statistics of raw VCFs: Rule 6
 rule countNumSitesPreFilterXchr:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz")
@@ -162,8 +162,12 @@ rule countNumSitesPreFilterXchr:
         """
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
+# Finished getting statistics of raw VCFs.
 
-
+#-------------------------------------------------------------------------------
+# VQSR Steps #
+# These rules with perform VQSR filtering on the autosomes and x chromosome VCFs
+# VQSR Step - Variant Recalibrator. Autosomes
 rule VariantRecalibratorAutos:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz"),
@@ -191,8 +195,7 @@ rule VariantRecalibratorAutos:
         """--tranches-file {output.tranches} """
         """--rscript-file {output.rplots} """
 #"""-an QD -an MQ -an MQRankSum -an ReadPosRankSum -an FS -an SOR -an InbreedingCoeff """
-
-
+'''
 rule VariantRecalibratorXchr:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz"),
@@ -219,8 +222,31 @@ rule VariantRecalibratorXchr:
         """-O {output.recal} """
         """--tranches-file {output.tranches} """
         """--rscript-file {output.rplots} """
-#"""-an QD -an MQ -an MQRankSum -an ReadPosRankSum -an FS -an SOR -an InbreedingCoeff """
+'''
 
+# VQSR Step - Variant Recalibrator. X chromosome
+rule VariantRecalibratorXchr:
+    input:
+        vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz"),
+        hapmap = config["hapmap"],
+        omni = config["omni"],
+        thousandG = config["thousandG"],
+        dbsnp = config["dbsnp"]
+    params:
+        chrms = "{chrs}",
+        ref = lambda wildcards: config[wildcards.vcf_options_x]["refgenome"],
+    output:
+        recal = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}_output.recal"),
+        tranches = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}_output.tranches"),
+        rplots = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}_output.plots.R")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("gatk VariantRecalibrator -R {params.ref} -V {input.vcf}  -L {params.chrms} --resource:hapmap,known=false,training=true,truth=true,prior=15.0 {input.hapmap} --resource:omni,known=false,training=true,truth=false,prior=12.0 {input.omni} --resource:1000G,known=false,training=true,truth=false,prior=10.0 {input.thousandG} --resource:dbsnp,known=true,training=false,truth=false,prior=2.0 {input.dbsnp} -an QD -an MQ -an MQRankSum -an ReadPosRankSum -an FS -an SOR -mode SNP -O {output.recal} --max-gaussians 4 --tranches-file {output.tranches} --rscript-file {output.rplots}")
+            print("haploid used")
+        else:
+            shell("gatk VariantRecalibrator -R {params.ref} -V {input.vcf}  -L {params.chrms} --resource:hapmap,known=false,training=true,truth=true,prior=15.0 {input.hapmap} --resource:omni,known=false,training=true,truth=false,prior=12.0 {input.omni} --resource:1000G,known=false,training=true,truth=false,prior=10.0 {input.thousandG} --resource:dbsnp,known=true,training=false,truth=false,prior=2.0 {input.dbsnp} -an QD -an MQ -an MQRankSum -an ReadPosRankSum -an FS -an SOR -mode SNP -O {output.recal} --tranches-file {output.tranches} --rscript-file {output.rplots}")
+
+# VQSR Step - Apply VQSR. Autosomes
 rule ApplyVQSRAutos:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz"),
@@ -242,7 +268,7 @@ rule ApplyVQSRAutos:
         """--recal-file {input.recal} """
         """-mode SNP """
 
-
+# VQSR Step - Apply VQSR. X chromosome
 rule ApplyVQSRXchr:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz"),
@@ -264,7 +290,7 @@ rule ApplyVQSRXchr:
         """--recal-file {input.recal} """
         """-mode SNP """
 
-
+# VQSR Step - Select Variants. Autosomes
 rule SelectVariantsAutos:
     input:
         vcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.vcf.gz")
@@ -281,7 +307,7 @@ rule SelectVariantsAutos:
         """--exclude-filtered """
         """-O {output.outvcf} """
 
-
+# VQSR Step - Select Variants. X chromosome
 rule SelectVariantsXchr:
     input:
         vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.vcf.gz")
@@ -298,7 +324,9 @@ rule SelectVariantsXchr:
         """--exclude-filtered """
         """-O {output.outvcf} """
 
-
+#-------------------------------------------------------------------------------
+# Get statistics for VCFs post VQSR #
+# Get statistics for VCFs post VQSR: Rule 1
 rule getStatsPostFilterAutos:
     input:
         vcfauto = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
@@ -315,7 +343,7 @@ rule getStatsPostFilterAutos:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcfauto} --outfile {output.statsauto}
         """
 
-
+# Get statistics for VCFs post VQSR: Rule 2
 rule getStatsPostFilterXchr:
     input:
         vcfx = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
@@ -332,7 +360,7 @@ rule getStatsPostFilterXchr:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcfx} --outfile {output.statsx}
         """
 
-
+# Get statistics for VCFs post VQSR: Rule 3
 rule plotDensityPostFilterAutos:
     input:
         os.path.join(config["out_dir"], "stats_post_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv_annotations.txt"),
@@ -349,7 +377,7 @@ rule plotDensityPostFilterAutos:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics for VCFs post VQSR: Rule 4
 rule plotDensityPostFilterXchr:
     input:
         os.path.join(config["out_dir"], "stats_post_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv_annotations.txt"),
@@ -366,7 +394,7 @@ rule plotDensityPostFilterXchr:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics for VCFs post VQSR: Rule 5
 rule countNumSitesPostFilterAutos:
     input:
         vcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
@@ -377,7 +405,7 @@ rule countNumSitesPostFilterAutos:
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
 
-
+# Get statistics for VCFs post VQSR: Rule 6
 rule countNumSitesPostFilterXchr:
     input:
         vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
@@ -388,7 +416,10 @@ rule countNumSitesPostFilterXchr:
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
 
-
+#-------------------------------------------------------------------------------
+# Hard Filtering Steps #
+# These rules with perform VQSR filtering on the autosomes and x chromosome VCFs
+# Hard Filtering Step - Select Variants. Autosomes
 rule SelectVariantsHardFilterAutos:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz"),
@@ -402,7 +433,7 @@ rule SelectVariantsHardFilterAutos:
         gatk SelectVariants -R {params.ref} -V {input.vcf} -L {params.chrms} -select-type SNP -O {output.ovcf}
         """
 
-
+# Hard Filtering Step - Select Variants. X chromosome
 rule SelectVariantsHardFilterXchr:
     input:
         vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz"),
@@ -416,7 +447,7 @@ rule SelectVariantsHardFilterXchr:
         gatk SelectVariants -R {params.ref} -V {input.vcf} -L {params.chrms} -select-type SNP -O {output.ovcf}
         """
 
-
+# Hard Filtering Step - Variant Filtration. Autosomes
 rule VariantFiltrationHardFilterAutos:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.snps.vcf.gz")
@@ -439,7 +470,7 @@ rule VariantFiltrationHardFilterAutos:
         gatk --java-options "-Xmx16g" SelectVariants -R {params.ref} -V {params.intermediatevcf}.vcf.gz -L {params.chrms} --exclude-filtered -O {output.ovcf}
         """
 
-
+# Hard Filtering Step - Variant Filtration. X chromosome
 rule VariantFiltrationHardFilterXchr:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.snps.vcf.gz")
@@ -461,7 +492,9 @@ rule VariantFiltrationHardFilterXchr:
         gatk --java-options "-Xmx16g" SelectVariants -R {params.ref} -V {params.intermediatevcf}.vcf.gz -L {params.chrms} --exclude-filtered -O {output.ovcf}
         """
 
-
+#-------------------------------------------------------------------------------
+# Get statistics for VCFs post Hard Filtering #
+# Get statistics for VCFs post Hard Filtering: Rule 1
 rule getStatsPostHardFilterAutos:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
@@ -478,7 +511,7 @@ rule getStatsPostHardFilterAutos:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcf} --outfile {output.stats}
         """
 
-
+# Get statistics for VCFs post Hard Filtering: Rule 2
 rule getStatsPostHardFilterXchr:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
@@ -495,7 +528,7 @@ rule getStatsPostHardFilterXchr:
         python {params.script} {params.AN} {params.QD} {params.MQ} {params.DP} --vcf {input.vcf} --outfile {output.stats}
         """
 
-
+# Get statistics for VCFs post Hard Filtering: Rule 3
 rule plotDensityPostHardFilterAutos:
     input:
         os.path.join(config["out_dir"], "stats_post_hard_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv_annotations.txt")
@@ -512,7 +545,7 @@ rule plotDensityPostHardFilterAutos:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics for VCFs post Hard Filtering: Rule 4
 rule plotDensityPostHardFilterXchr:
     input:
         os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv_annotations.txt")
@@ -529,7 +562,7 @@ rule plotDensityPostHardFilterXchr:
         Rscript {params.script} {input} {output.AN_plot} {output.QD_plot} {output.DP_plot} {output.MQ_plot} {output.DP_statistics}
         """
 
-
+# Get statistics for VCFs post Hard Filtering: Rule 5
 rule countNumSitesPostHardFilterAutos:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
@@ -540,7 +573,7 @@ rule countNumSitesPostHardFilterAutos:
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
 
-
+# Get statistics for VCFs post Hard Filtering: Rule 6
 rule countNumSitesPostHardFilterXchr:
     input:
         vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
@@ -550,3 +583,76 @@ rule countNumSitesPostHardFilterXchr:
         """
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
+
+#-------------------------------------------------------------------------------
+# Extract array site from VCFs #
+# For the raw VCFs, extract the sites from the array. We will eventually calculate
+# SFS and pi for unfiltered and filtered VCFs
+# Raw VCFs #
+# Autosomes
+rule extractArraySitesPreFilterAutos:
+    input:
+        vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "raw/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
+
+# Sex chromosomes
+rule extractArraySitesPreFilterXchr:
+    input:
+        vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
+
+# VQSR VCFs #
+# Autosomes
+rule extractArraySitesVQSRAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
+
+# X chromosome
+rule extractArraySitesVQSRXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
+
+# Hard Filtered VCFs#
+# Autosomes
+rule extractArraySitesHardFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
+
+# X chromosome
+rule extractArraySitesHardFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        posfn = config["array_pos"]
+    output:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    shell:
+        "vcftools --gzvcf {input.vcf} --positions {params.posfn} --recode --stdout | bgzip -c > {output}"
