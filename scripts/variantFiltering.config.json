@@ -2,6 +2,9 @@
   "in_vcf_dir": "/scratch/tphung3/PopulationReferenceAlignment/genotyped_vcfs/",
   "out_dir": "/scratch/amtarave/variant_calling/",
   "scripts_dir": "/home/amtarave/projects/variant_calling/scripts/",
+  "popgen_scripts_dir": "/home/amtarave/projects/variant_calling/popgen_tools/",
+  "popgen_plotting_scripts_dir": "/home/amtarave/projects/variant_calling/popgen_tools/plotting_scripts/",
+
 
   "hapmap": "/scratch/tphung3/PopulationReferenceAlignment/analyses/compare_hardfilter_vqsr/scripts/hapmap_3.3.hg38.vcf.gz",
   "omni": "/scratch/tphung3/PopulationReferenceAlignment/analyses/compare_hardfilter_vqsr/scripts/1000G_omni2.5.hg38.vcf.gz",
