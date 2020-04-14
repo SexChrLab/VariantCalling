@@ -17,7 +17,7 @@
   "x": ["chrX"],
 
   "vcf_options_auto": ["females", "males"],
-  "vcf_options_x": ["females", "diploid", "haploid"],
+  "vcf_options_x": ["females", "diploid"],
   "vcf_options_x_old_vcf_options_x": ["females", "diploid", "haploid"],
 
   "filtering_options": ["gatkHardFilter"],
