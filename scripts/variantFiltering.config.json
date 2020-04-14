@@ -12,12 +12,13 @@
   "dbsnp": "/scratch/tphung3/PopulationReferenceAlignment/analyses/compare_hardfilter_vqsr/scripts/dbsnp_138.hg38.vcf.gz",
 
   "array_pos": "/home/amtarave/projects/variant_calling/lists/array.pos.GRCh38.txt",
+  "hi_qual_neu_dir": "/home/amtarave/projects/variant_calling/lists/neutral_high_quality_filtering/",
 
   "autos": ["chr8"],
   "x": ["chrX"],
 
   "vcf_options_auto": ["females", "males"],
-  "vcf_options_x": ["females", "diploid"],
+  "vcf_options_x": ["females", "diploid", "haploid"],
   "vcf_options_x_old_vcf_options_x": ["females", "diploid", "haploid"],
 
   "filtering_options": ["gatkHardFilter"],

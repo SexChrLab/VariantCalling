@@ -90,8 +90,31 @@ rule all:
         expand(os.path.join(config["out_dir"], "results/hard_filter/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/hard_filter/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/merged/all_variable_sites/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.SFS.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
-        expand(os.path.join(config["out_dir"], "results/merged/all_variable_sites/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
-
+        expand(os.path.join(config["out_dir"], "results/merged/all_variable_sites/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.pi.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
 
 
 #-------------------------------------------------------------------------------
@@ -981,20 +1004,16 @@ rule SFSHardFilterAutos:
     params:
         scriptdir = config["popgen_scripts_dir"],
         plotscriptdir = config["popgen_plotting_scripts_dir"],
-        sfstxt = os.path.join(config["out_dir"], "results/hard_filter/sfs_var_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.txt")
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.txt")
     output:
-        sfstxt = os.path.join(config["out_dir"], "results/hard_filter/sfs_var_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.txt"),
-        png = os.path.join(config["out_dir"], "results/hard_filter/sfs_var_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.png")
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.txt"),
+        png = os.path.join(config["out_dir"], "results/hard_filter/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.SFS.png")
     shell:
         """
         python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {params.sfstxt} --ploidy diploid;
         Rscript {params.plotscriptdir}plot_sfs.R {params.sfstxt} {output.png}
         """
 
-# NEED TO TROUBLESHOOT THIS.
-# When running for the haploid X chromosome there is no SFS text file output
-# Not sure why this is happening. This was not an issue before when running on the
-# array sites
 # X chromosome
 rule SFSHardFilterXchr:
     input:
@@ -1009,7 +1028,7 @@ rule SFSHardFilterXchr:
     run:
         if wildcards.vcf_options_x == "haploid":
             shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {params.sfstxt} --ploidy haploid")
-            shell("Rscript {params.plotscriptdir}plot_sfs.R {params.sfstxt} {output}")
+            shell("Rscript {params.plotscriptdir}plot_sfs.R {params.sfstxt} {output.png}")
         else:
             shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {params.sfstxt} --ploidy diploid")
             shell("Rscript {params.plotscriptdir}plot_sfs.R {params.sfstxt} {output.png}")
@@ -1043,3 +1062,191 @@ rule SFSAllXchr:
         os.path.join(config["out_dir"], "results/merged/all_variable_sites/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.SFS.png")
     shell:
         "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
+
+#-------------------------------------------------------------------------------
+# ALL VARIANT SITES #
+# Calculate pi per site
+
+# Pre filter #
+# Autosomes
+rule piPreFilterAutos:
+    input:
+        vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piPreFilterXchr:
+    input:
+        vcf = os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+
+# Post VQSR #
+# Autosomes
+rule piVQSRAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piVQSRXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+
+# Post Hard Filter #
+# Autosomes
+rule piHardFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piHardFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+
+
+#-------------------------------------------------------------------------------
+# SITES RESTRICTED TO THE ARRAY #
+# Calculate pi per site
+# Pre filter #
+# Autosomes
+rule piPreFilterArraySitesAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/pre_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piPreFilterArraySitesXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/pre_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+
+# Post VQSR #
+# Autosomes
+rule piVQSRArraySitesAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/vqsr/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piVQSRArraySitesXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/vqsr/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+
+# Post Hard Filter #
+# Autosomes
+rule piHardFilterArraySitesAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.pi.per.site.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}"
+
+# X chromosome
+rule piHardFilterArraySitesXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"],
+        beddirfn = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.short.bed")
+    output:
+        o1 = os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.pi.txt"),
+        o2 = os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.pi.per.site.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy haploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --pi --pi_target --ploidy diploid --target_bed {params.beddirfn} --pi_target_out {output.o1} --pi_target_per_site_out {output.o2}")
