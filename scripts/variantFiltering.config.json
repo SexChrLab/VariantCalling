@@ -17,6 +17,8 @@
   "autos": ["chr8"],
   "x": ["chrX"],
 
+  "x_filter": "/home/amtarave/projects/variant_calling/lists/PARs.XTR.bed",
+
   "vcf_options_auto": ["females", "males"],
   "vcf_options_x": ["females", "diploid", "haploid"],
   "vcf_options_x_old_vcf_options_x": ["females", "diploid", "haploid"],
