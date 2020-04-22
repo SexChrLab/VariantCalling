@@ -168,7 +168,25 @@ rule all:
         expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
         expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.venn.diagram.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
-        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/merged/all_variable_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.high.qual.neutral.sites.SFS.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/merged/all_variable_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.high.qual.neutral.sites.noPARs.noXTR.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.SFS.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
+
+
 
 #-------------------------------------------------------------------------------
 # Get statistics of raw VCFs #
@@ -1480,17 +1498,8 @@ rule piHardFilterArraySitesXchr:
 
 
 #-------------------------------------------------------------------------------
-# Filter VCFs keeping only putatively neutral sites, and for the X chromosome,
-# removing the first 5Mb of chr X, PAR2, and XTR.
-# This filtering will need to be done on all the vcfs - different filtering
-# strategies, and sites restricted to the array.
-# I will also count the number of sites that remain after filtering, and generate
-# SFSs
-
 # ALL VARIANT SITES - NEUTRAL, HIGH QUALITY NO PARS AND XTR #
-# 4) Generate SFSs
-# 5) SFSs plot combined
-
+# Get number of sites, venn diagrams, and SFS
 # 1) Filtering - Extract neutral and high quality sites, remove XTR and PARs #
 # Pre filter
 rule regionFiltersAllAutos:
@@ -1703,11 +1712,116 @@ rule plotOverlapRegionFilterXchr:
     shell:
         "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
 
+# 4) Generate SFSs #
+# Raw #
+# Autosomes
+rule SFSPreFilterRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+# X chromosome
+rule SFSPreFilterRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# Post VQSR #
+# Autosomes
+rule SFSVQSRRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+# X chromosome
+rule SFSVQSRRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# Post Hard Filter #
+# Autosomes
+rule SFSHardFilterRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+# X chromosome
+rule SFSHardFilterRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# 5) SFSs plot combined #
+# Autosomes
+# NOTE: For R script order of input is important - Raw first, than VQSR, than hard filter
+rule SFSAllRegionFilterAutos:
+    input:
+        rawfn = os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.SFS.txt"),
+        vqsrfn = os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.SFS.txt"),
+        hfilterfn = os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.SFS.txt")
+    params:
+        scrpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/merged/all_variable_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.high.qual.neutral.sites.SFS.png")
+    shell:
+        "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
+
+# X chromosome
+rule SFSAllRegionFilterXchr:
+    input:
+        rawfn = os.path.join(config["out_dir"], "results/pre_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.SFS.txt"),
+        vqsrfn = os.path.join(config["out_dir"], "results/vqsr_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt"),
+        hfilterfn = os.path.join(config["out_dir"], "results/hard_filter_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    params:
+        scrpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/merged/all_variable_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.high.qual.neutral.sites.noPARs.noXTR.SFS.png")
+    shell:
+        "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
 
 #-------------------------------------------------------------------------------
 # SITES RESTRICTED TO THE ARRAY - NEUTRAL, HIGH QUALITY NO PARS AND XTR #
-# 4) Generate SFSs
-# 5) SFSs plot combined
+# Get number of sites, venn diagrams, and SFS
 
 # 1) Filtering - Extract neutral and high quality sites, remove XTR and PARs #
 # Pre filter
@@ -1920,3 +2034,112 @@ rule plotOverlapRegionFilterArraySitesXchr:
         os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.venn.diagram.png")
     shell:
         "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+
+# 4) Generate SFSs #
+# Pre filter #
+# Autosomes
+rule SFSPreFilterArraySitesRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+# X chromosome
+rule SFSPreFilterArraySitesRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# Post VQSR #
+# Autosomes
+rule SFSVQSRArraySitesRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+
+# X chromosome
+rule SFSVQSRArraySitesRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# Post Hard Filter #
+# Autosomes
+rule SFSHardFilterArraySitesRegionFilterAutos:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.SFS.txt")
+    shell:
+        "python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid"
+
+# X chromosome
+rule SFSHardFilterArraySitesRegionFilterXchr:
+    input:
+        vcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        scriptdir = config["popgen_scripts_dir"]
+    output:
+        sfstxt = os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    run:
+        if wildcards.vcf_options_x == "haploid":
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy haploid")
+        else:
+            shell("python {params.scriptdir}popgen_tools.py --vcf_file {input.vcf} --sfs_all --sfs_all_out {output.sfstxt} --ploidy diploid")
+
+# 5) SFSs plot combined #
+# Autosomes
+# NOTE: For R script order of input is important - Raw first, than VQSR, than hard filter
+rule SFSAllArraySitesRegionFilterAutos:
+    input:
+        rawfn = os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.SFS.txt"),
+        vqsrfn = os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.SFS.txt"),
+        hfilterfn = os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.SFS.txt")
+    params:
+        scrpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.SFS.png")
+    shell:
+        "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
+
+# X chromosome
+rule SFSAllArraySitesRegionFilterXchr:
+    input:
+        rawfn =  os.path.join(config["out_dir"], "results/pre_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"),
+        vqsrfn = os.path.join(config["out_dir"], "results/vqsr_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"),
+        hfilterfn = os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt")
+    params:
+        scrpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.png")
+    shell:
+        "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
