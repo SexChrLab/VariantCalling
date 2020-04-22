@@ -120,8 +120,55 @@ rule all:
         expand(os.path.join(config["out_dir"], "results/hard_filter/pi/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.pi.per.site.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.noPARs.noXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.noPARs.noXTR.pi.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
-        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.noPARs.noXTR.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
-
+        expand(os.path.join(config["out_dir"], "results/hard_filter/pi/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.noPARs.noXTR.pi.per.site.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.venn.diagram.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.venn.diagram.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "stats_pre_filter/autosomes", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "stats_pre_filter/sex_chromosomes", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.noPARsXTR.sites_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "stats_post_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "stats_post_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "stats_post_hard_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "stats_pre_filter_array_sites/autosomes", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "stats_pre_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.noPARsXTR.sites_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "stats_post_filter_array_sites/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "stats_post_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "stats_post_hard_filter_array_sites/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites_num_sites.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "stats_post_hard_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR_num_sites.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.venn.diagram.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.venn.diagram.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.venn.diagram.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
 
 #-------------------------------------------------------------------------------
 # Get statistics of raw VCFs #
@@ -636,6 +683,78 @@ rule countNumSitesPostHardFilterXchr:
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
 
+
+#-------------------------------------------------------------------------------
+# Venn diagram of overlapping sites - all called variants VQSR and hard filter #
+# 1. Make a list per vcf with chr_pos
+# Autosomes
+rule chrPosListsVQSRAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# X chromosome
+rule chrPosListsVQSRXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# 2. Plot results
+# Autosomes
+rule plotOverlapAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+# X chromosome
+rule plotOverlapXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+
 #-------------------------------------------------------------------------------
 # Extract array site from VCFs #
 # For the raw VCFs, extract the sites from the array. We will eventually calculate
@@ -778,6 +897,78 @@ rule countNumSitesHardFilterArraySitesXchr:
         """
         zcat {input.vcf} | grep -v '#' | wc -l > {output.siteinfo}
         """
+
+
+#-------------------------------------------------------------------------------
+# Venn diagram of overlapping sites - array sites VQSR and hard filter #
+# 1. Make a list per vcf with chr_pos
+# Autosomes
+rule chrPosListsVQSRArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# X chromosome
+rule chrPosListsVQSRArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# 2. Plot results
+# Autosomes
+rule plotOverlapArraySitesAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+# X chromosome
+rule plotOverlapArraySitesXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
 
 #-------------------------------------------------------------------------------
 # SITES RESTRICTED TO THE ARRAY #
@@ -1296,7 +1487,436 @@ rule piHardFilterArraySitesXchr:
 # I will also count the number of sites that remain after filtering, and generate
 # SFSs
 
-# In the rules above that calculate pi for X, I need to additionally remove PARs,
-# and XTR. I think I can just add a command within each of these rules that removes
-# those regions.
-# bedtools subtract -header -a {input.vcf} -b {input.coordinates} > {output}
+# ALL VARIANT SITES - NEUTRAL, HIGH QUALITY NO PARS AND XTR #
+# 4) Generate SFSs
+# 5) SFSs plot combined
+
+# 1) Filtering - Extract neutral and high quality sites, remove XTR and PARs #
+# Pre filter
+rule regionFiltersAllAutos:
+    input:
+        os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_auto}.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersAllXchr:
+    input:
+        os.path.join(config["in_vcf_dir"], "{chrs}.gatk.called.raw.{vcf_options_x}.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# VQSR
+rule regionFiltersVQSRAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersVQSRXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# Hard Filter
+rule regionFiltersHardFilterAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersHardFilterXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# 2) Count number of sites for table #
+# Raw
+rule countSitesregionFiltersAllAutos:
+    input:
+        os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_pre_filter/autosomes", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites", "{chrs}.gatk.called.raw.{vcf_options_auto}.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersAllXchr:
+    input:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_pre_filter/sex_chromosomes", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.raw.{vcf_options_x}.high.qual.neutral.noPARsXTR.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# VQSR
+rule countSitesregionFiltersVQSRAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersVQSRXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# Hard Filter
+rule countSitesregionFiltersHardFilterAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_hard_filter/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersHardFilterXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_hard_filter/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# 3) Make venn diagrams comparing VQSR and hard filtering #
+# 3.1. Make a list per vcf with chr_pos
+# Autosomes
+rule chrPosListsVQSRRegionFilterAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterRegionFilterAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# X chromosome
+rule chrPosListsVQSRRegionFilterXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterRegionFilterXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# 3.2. Plot results
+# Autosomes
+rule plotOverlapRegionFilterAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+# X chromosome
+rule plotOverlapRegionFilterXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+
+#-------------------------------------------------------------------------------
+# SITES RESTRICTED TO THE ARRAY - NEUTRAL, HIGH QUALITY NO PARS AND XTR #
+# 4) Generate SFSs
+# 5) SFSs plot combined
+
+# 1) Filtering - Extract neutral and high quality sites, remove XTR and PARs #
+# Pre filter
+rule regionFiltersAllArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "raw/autosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersAllArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# VQSR
+rule regionFiltersVQSRArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersVQSRArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# Hard Filter
+rule regionFiltersHardFilterArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed")
+    output:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    shell:
+        "bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {output}"
+
+rule regionFiltersHardFilterArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        hiqneubed = os.path.join(config["hi_qual_neu_dir"], "{chrs}_GRCh38_high_quality_neutral_sites.bed"),
+        parsxtrbed = config["x_filter"],
+        filter1 = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    shell:
+        """
+        bedtools intersect -header -a {input} -b {params.hiqneubed} | bgzip -c > {params.filter1};
+        subtractBed -header -a {params.filter1} -b {params.parsxtrbed} | bgzip -c > {output}
+        """
+
+# 2) Count number of sites for table #
+# Raw
+rule countSitesregionFiltersAllArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "raw/autosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_pre_filter_array_sites/autosomes", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.raw.{vcf_options_auto}.array.sites.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersAllArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "raw/sex_chromosomes/filters", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_pre_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.raw.{vcf_options_x}.array.sites.high.qual.neutral.noPARsXTR.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# VQSR
+rule countSitesregionFiltersVQSRArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_filter_array_sites/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersVQSRArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# Hard Filter
+rule countSitesregionFiltersHardFilterArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_hard_filter_array_sites/autosomes", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+rule countSitesregionFiltersHardFilterArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "stats_post_hard_filter_array_sites/sex_chromosomes", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR_num_sites.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | wc -l > {output}
+        """
+
+# 3) Make venn diagrams comparing VQSR and hard filtering #
+# 3.1. Make a list per vcf with chr_pos
+# Autosomes
+rule chrPosListsVQSRRegionFilterArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterRegionFilterArraySitesAutos:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# X chromosome
+rule chrPosListsVQSRRegionFilterArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+rule chrPosListsHardFilterRegionFilterArraySitesXchr:
+    input:
+        os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    shell:
+        """
+        zcat {input} | grep -v '#' | awk '{{ print $1'_'$2 }}' >  {output}
+        """
+
+# 3.2. Plot results
+# Autosomes
+rule plotOverlapRegionFilterArraySitesAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+# X chromosome
+rule plotOverlapRegionFilterArraySitesXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt")
+    params:
+        srpt = config["scripts_dir"]
+    output:
+        os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.venn.diagram.png")
+    shell:
+        "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
