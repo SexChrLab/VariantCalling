@@ -1090,7 +1090,9 @@ rule densityPlotsArraySitesAutos:
         vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.chr.pos.txt"),
         hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"),
         vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz"),
-        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz"),
+        orgvqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz"),
+        orghardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz"),
     params:
         srpt = config["scripts_dir"],
         chrm = "{chrs}",
@@ -1111,9 +1113,9 @@ rule densityPlotsArraySitesAutos:
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
         awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
-        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.orghardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out3} -o {params.vcf3};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
@@ -1126,7 +1128,9 @@ rule densityPlotsArraySitesXchr:
         vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.chr.pos.txt"),
         hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"),
         vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz"),
-        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz"),
+        orgvqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz"),
+        orghardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
     params:
         srpt = config["scripts_dir"],
         chrm = "{chrs}",
@@ -1147,9 +1151,9 @@ rule densityPlotsArraySitesXchr:
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
         awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
-        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.orghardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out3} -o {params.vcf3};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
@@ -2402,7 +2406,9 @@ rule densityPlotsRegionFilterArraySitesAutos:
         vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"),
         hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"),
         vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz"),
-        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz"),
+        orgvqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz"),
+        orghardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
     params:
         srpt = config["scripts_dir"],
         chrm = "{chrs}",
@@ -2423,9 +2429,9 @@ rule densityPlotsRegionFilterArraySitesAutos:
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
         awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
-        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.orghardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out3} -o {params.vcf3};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
@@ -2438,7 +2444,9 @@ rule densityPlotsRegionFilterArraySitesXchr:
         vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
         hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
         vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"),
-        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"),
+        orgvqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz"),
+        orghardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
     params:
         srpt = config["scripts_dir"],
         chrm = "{chrs}",
@@ -2459,9 +2467,9 @@ rule densityPlotsRegionFilterArraySitesXchr:
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
         awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
         awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
-        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
-        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.orghardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.orgvqsrvcf} -T {params.out3} -o {params.vcf3};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
         python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
