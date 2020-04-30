@@ -184,8 +184,23 @@ rule all:
         expand(os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.SFS.txt"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/hard_filter_array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.txt"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
         expand(os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/autosomes", "{chrs}", "{chrs}.{vcf_options_auto}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.SFS.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
-        expand(os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
-
+        expand(os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.DP.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.QD.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.DP.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.QD.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.DP.png"),  chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.QD.png"),  chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.DP.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.QD.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.DP.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.QD.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.DP.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.QD.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.DP.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.QD.png"), chrs=config["autos"], vcf_options_auto=config["vcf_options_auto"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.DP.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"]),
+        expand(os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.QD.png"), chrs=config["x"], vcf_options_x=config["vcf_options_x"], filtering_options=config["filtering_options"])
 
 
 #-------------------------------------------------------------------------------
@@ -772,6 +787,82 @@ rule plotOverlapXchr:
     shell:
         "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
 
+#-------------------------------------------------------------------------------
+# Annotation plots for overlapping sites and sites uniquely retained post VQSR
+#                                                           and hard filtering #
+#-------------------------------------------------------------------------------
+# All sites - no additional filters
+# Autosomes #
+rule densityPlotsAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.{filtering_options}.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.sv.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.{filtering_options}.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
+
+# X chromosome #
+rule densityPlotsXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.{filtering_options}.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.sv.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.{filtering_options}.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
 
 #-------------------------------------------------------------------------------
 # Extract array site from VCFs #
@@ -986,6 +1077,84 @@ rule plotOverlapArraySitesXchr:
         os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.venn.diagram.png")
     shell:
         "Rscript {params.srpt}overlappingSites.R {input.vqsr} {input.hardf} {output}"
+
+
+#-------------------------------------------------------------------------------
+# Annotation plots for overlapping sites and sites uniquely retained post VQSR
+#                                                           and hard filtering #
+#-------------------------------------------------------------------------------
+# Array sites - no additional filters
+# Autosomes #
+rule densityPlotsArraySitesAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.array.sites.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.{filtering_options}.array.sites.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.sv.array.sites.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.array.sites.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.{filtering_options}.array.sites.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
+
+# X chromosome #
+rule densityPlotsArraySitesXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.array.sites.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.{filtering_options}.array.sites.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.sv.array.sites.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.array.sites.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.{filtering_options}.array.sites.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
 
 
 #-------------------------------------------------------------------------------
@@ -1820,6 +1989,83 @@ rule SFSAllRegionFilterXchr:
         "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
 
 #-------------------------------------------------------------------------------
+# Annotation plots for overlapping sites and sites uniquely retained post VQSR
+#                                                           and hard filtering #
+#-------------------------------------------------------------------------------
+# All sites - neutral and high quality regions, no PARs and XTR
+# Autosomes #
+rule densityPlotsRegionFilterAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.high.qual.neutral.sites.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.{filtering_options}.high.qual.neutral.sites.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.high.qual.neutral.sites.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.high.qual.neutral.sites.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.sv.high.qual.neutral.sites.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.high.qual.neutral.sites.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.{filtering_options}.high.qual.neutral.sites.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_filters/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.high.qual.neutral.sites.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
+
+# X chromosome #
+rule densityPlotRegionFiltersXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.high.qual.neutral.sites.noPARsXTR.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.{filtering_options}.high.qual.neutral.sites.noPARsXTR.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.high.qual.neutral.sites.noPARsXTR.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.high.qual.neutral.sites.noPARsXTR.sv.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.sv.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.high.qual.neutral.sites.noPARsXTR.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.{filtering_options}.high.qual.neutral.sites.noPARsXTR.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_filters/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.high.qual.neutral.sites.noPARsXTR.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
+
+#-------------------------------------------------------------------------------
 # SITES RESTRICTED TO THE ARRAY - NEUTRAL, HIGH QUALITY NO PARS AND XTR #
 # Get number of sites, venn diagrams, and SFS
 
@@ -2143,3 +2389,81 @@ rule SFSAllArraySitesRegionFilterXchr:
         os.path.join(config["out_dir"], "results/merged/array_sites_region_filters/sfs/sex_chromosomes", "{chrs}", "{chrs}.{vcf_options_x}.raw.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.SFS.png")
     shell:
         "Rscript {params.scrpt}sfs_plotting.R {input.rawfn} {input.vqsrfn} {input.hfilterfn} {output}"
+
+
+#-------------------------------------------------------------------------------
+# Annotation plots for overlapping sites and sites uniquely retained post VQSR
+#                                                           and hard filtering #
+#-------------------------------------------------------------------------------
+# Array sites - no additional filters
+# Autosomes #
+rule densityPlotsRegionFilterArraySitesAutos:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/autosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.array.sites.high.qual.neutral.sites.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.{filtering_options}.array.sites.high.qual.neutral.sites.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.vqsr.sv.array.sites.high.qual.neutral.sites.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_auto}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.sv.array.sites.high.qual.neutral.sites.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.array.sites.high.qual.neutral.sites.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.{filtering_options}.array.sites.high.qual.neutral.sites.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/autosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_auto}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
+
+# X chromosome #
+rule densityPlotsRegionFilterArraySitesXchr:
+    input:
+        vqsr = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        hardf = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.chr.pos.txt"),
+        vqsrvcf = os.path.join(config["out_dir"], "vqsr/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz"),
+        hardfvcf = os.path.join(config["out_dir"], "hard_filter/sex_chromosomes/filters", "{chrs}", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.vcf.gz")
+    params:
+        srpt = config["scripts_dir"],
+        chrm = "{chrs}",
+        out1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.array.sites.high.qual.neutral.sites.noPARsXTR.unique.txt"),
+        out2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.unique.txt"),
+        out3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.overlap.txt"),
+        vcf1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.vqsr.sv.array.sites.high.qual.neutral.sites.noPARsXTR.unique.vcf.gz"),
+        vcf2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.gatk.called.{vcf_options_x}.snps.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.unique.vcf.gz"),
+        vcf3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "{chrs}", "density_plots", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.sv.array.sites.high.qual.neutral.sites.noPARsXTR.overlap.vcf.gz"),
+        annotation1 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.array.sites.high.qual.neutral.sites.noPARsXTR.unique_annotations.txt"),
+        annotation2 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.unique_annotations.txt"),
+        annotation3 = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.overlap_annotations.txt")
+    output:
+        outDP = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.DP.png"),
+        outQD = os.path.join(config["out_dir"], "results/overlap_sites_filters_array_sites/sex_chromosomes", "density_plots", "{chrs}", "{chrs}.{vcf_options_x}.vqsr.{filtering_options}.array.sites.high.qual.neutral.sites.noPARsXTR.QD.png")
+    shell:
+        """
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out1};
+        awk 'FNR==NR {{a[$0]++; next}} !a[$0]' {input.vqsr} {input.hardf} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out2};
+        awk 'NR==FNR {{ lines[$0]=1; next }} $0 in lines' {input.hardf} {input.vqsr} | sed -e 's/{params.chrm}/{params.chrm}\t/g' > {params.out3};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out1} -o {params.vcf1};
+        bcftools view -O z  {input.hardfvcf} -T {params.out2} -o {params.vcf2};
+        bcftools view -O z  {input.vqsrvcf} -T {params.out3} -o {params.vcf3};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf1} --outfile {params.annotation1};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf2} --outfile {params.annotation2};
+        python {params.srpt}extract_stats_from_vcf.py AN QD MQ DP --vcf {params.vcf3} --outfile {params.annotation3};
+        Rscript {params.srpt}annotation_density_plots.R {params.annotation1} {params.annotation2} {params.annotation3} {output.outDP} {output.outQD}
+        """
