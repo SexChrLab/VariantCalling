@@ -1,0 +1,168 @@
+{
+  "genome_paths": {
+    "Ref_GRCh38_Default": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+		"Ref_GRCh38_Y_HardMasked": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla_Ymasked_XX.fa",
+		"Ref_GRCh38_Y_PARsMasked": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla_YPARmasked_XX.fa"
+	},
+
+  "scratch_proj_path": "/scratch/amtarave/variant_calling_simulations_project/pilot",
+  "proj_path": "/data/CEM/wilsonlab/projects/variant_calling_simulations_project/",
+  "tmp_scratch_path_old": "/beegfs/amtarave/variant_calling_simulations_project/pilot/",
+  "tmp_scratch_path": "/scratch/amtarave/variant_calling_simulations_project/pilot/",
+
+  "1000genomes_vcf_path": "/scratch/amtarave/variant_calling_simulations_project/pilot/data/all_chrs/",
+  "1000genomes_vcf_path_old": "/beegfs/amtarave/variant_calling_simulations_project/pilot/data/all_chrs/",
+  "drbed": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/YPARs.bed",
+  "trPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/xPARS.bed",
+  "trNonPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/xNonPARS.bed",
+
+
+  "neat": "/home/amtarave/packages/NEAT_2021-09-15/NEAT/",
+  "py_V3_8": "/home/amtarave/miniconda3/envs/NEAT_env/bin/python3.8",
+
+  "samples_test": [
+    "NA06994"
+  ],
+
+  "samples_pass_01_10samples": [
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005",
+
+    "NA11894",
+    "NA11918",
+    "NA11920",
+    "NA11931",
+    "NA11933",
+    "NA11995",
+    "NA12004",
+    "NA12006",
+    "NA12044",
+    "NA12046"
+
+  ],
+
+  "samples": [
+    "NA06984",
+    "NA06986",
+    "NA06994",
+    "NA07048",
+    "NA07051",
+    "NA07347",
+    "NA07357",
+    "NA10851",
+    "NA11829",
+    "NA11831",
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005",
+
+
+    "NA06985",
+    "NA06989",
+    "NA07000",
+    "NA07037",
+    "NA07056",
+    "NA10847",
+    "NA11830",
+    "NA11832",
+    "NA11840",
+    "NA11892",
+    "NA11894",
+    "NA11918",
+    "NA11920",
+    "NA11931",
+    "NA11933",
+    "NA11995",
+    "NA12004",
+    "NA12006",
+    "NA12044",
+    "NA12046"
+
+  ],
+
+  "males_pass_01_10samples": [
+    "NA06984",
+    "NA06986",
+    "NA06994",
+    "NA07048",
+    "NA07051",
+    "NA07347",
+    "NA07357",
+    "NA10851",
+    "NA11829",
+    "NA11831"
+  ],
+
+  "males": [
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005"
+  ],
+
+  "females": [
+    "NA11894",
+    "NA11918",
+    "NA11920",
+    "NA11931",
+    "NA11933",
+    "NA11995",
+    "NA12004",
+    "NA12006",
+    "NA12044",
+    "NA12046"
+
+  ],
+
+  "females_pass_01_10samples": [
+    "NA06985",
+    "NA06989",
+    "NA07000",
+    "NA07037",
+    "NA07056",
+    "NA10847",
+    "NA11830",
+    "NA11832",
+    "NA11840",
+    "NA11892"
+
+  ],
+
+  "chrY": ["chrY"],
+  "chrX": ["chrX"],
+  "chrM": ["chrM"],
+  "autosomes_test": ["chr20"],
+  "chromosomes": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22"
+  ],
+
+  "autosomes": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22"
+  ]
+
+}

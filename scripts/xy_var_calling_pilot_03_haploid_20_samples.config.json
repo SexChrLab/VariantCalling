@@ -1,0 +1,432 @@
+{
+  "genome_paths": {
+    "Ref_GRCh38_Default": "/data/CEM/shared/public_data/references/GENCODE/GRCh38.p12.genome/GRCh38.p12.genome.fa",
+    "Ref_GRCh38_Default_old": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+		"Ref_GRCh38_Y_HardMasked": "/scratch/amtarave/variant_calling_simulations_project/reference_genomes/GRCh38_full_analysis_set_plus_decoy_hla_Ymasked_XX.fa",
+		"Ref_GRCh38_Y_PARsMasked": "/scratch/amtarave/variant_calling_simulations_project/reference_genomes/GRCh38_full_analysis_set_plus_decoy_hla_YPARmasked_XX.fa"
+	},
+
+  "proj_path": "/data/CEM/wilsonlab/projects/variant_calling_simulations_project/",
+
+  "1000genomes_vcf_path": "/beegfs/amtarave/variant_calling_simulations_project/pilot/data/all_chrs/",
+
+  "drbed": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/YPARs.bed",
+  "trPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/XPARs.bed",
+  "trNonPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/XNonPARs.bed",
+  "par_intervals": "/home/amtarave/projects/variant_calling/lists/XPARs.interval.list",
+
+
+  "neat": "/home/amtarave/packages/NEAT_2021-09-15/NEAT/",
+  "py_V3_8": "/home/amtarave/miniconda3/envs/NEAT_env/bin/python3.8",
+
+  "samples_test": [
+    "NA11831", "NA10851"
+  ],
+
+  "samples": [
+    "NA06984",
+    "NA06986",
+    "NA06994",
+    "NA07048",
+    "NA07051",
+    "NA07347",
+    "NA07357",
+    "NA10851",
+    "NA11829",
+    "NA11831",
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005",
+
+
+    "NA06985",
+    "NA06989",
+    "NA07000",
+    "NA07037",
+    "NA07056",
+    "NA10847",
+    "NA11830",
+    "NA11832",
+    "NA11840",
+    "NA11892",
+    "NA11894",
+    "NA11918",
+    "NA11920",
+    "NA11931",
+    "NA11933",
+    "NA11995",
+    "NA12004",
+    "NA12006",
+    "NA12044",
+    "NA12046"
+  ],
+
+  "males": [
+    "NA06984",
+    "NA06986",
+    "NA06994",
+    "NA07048",
+    "NA07051",
+    "NA07347",
+    "NA07357",
+    "NA10851",
+    "NA11829",
+    "NA11831",
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005"
+  ],
+
+  "females": [
+    "NA06985",
+    "NA06989",
+    "NA07000",
+    "NA07037",
+    "NA07056",
+    "NA10847",
+    "NA11830",
+    "NA11832",
+    "NA11840",
+    "NA11892",
+    "NA11894",
+    "NA11918",
+    "NA11920",
+    "NA11931",
+    "NA11933",
+    "NA11995",
+    "NA12004",
+    "NA12006",
+    "NA12044",
+    "NA12046"
+
+  ],
+
+  "chrY": ["chrY"],
+  "chrX": ["chrX"],
+  "chr8": ["chr8"],
+  "chrM": ["chrM"],
+
+  "sex_chrs": ["chrX", "chrY"],
+  "autosomes_test": ["chr4", "chr5"],
+  "autosomes": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22"
+  ],
+  "chromosomes_all": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY"
+  ],
+  "chromosomes": [
+    "chrX", "chrY", "chrM"
+  ],
+
+  "filtering_options": ["gatkHardFilter"],
+
+  "gatkHardFilter":{
+    "QD": 2.0,
+    "QUAL": 30.0,
+    "SOR": 3.0,
+    "FS": 60.0,
+    "MQ": 40.0,
+    "MQRankSum": -12.5,
+    "ReadPosRankSum": -8.0
+  },
+
+  "QD_filters": [1.0, 1.5, 2.0, 12.0, 16.0, 20.0, 28.0],
+  "QUAL_filters": [30.0],
+  "SOR_filters": [3.0],
+  "FS_filters": [60.0],
+  "MQ_filters": [20.0, 30.0, 40.0, 50.0, 60.0],
+  "MQRankSum_filters": [-12.5],
+  "ReadPosRankSum_filters": [-8.0],
+  "AN_filters": [20, 15, 10, 5, 4, 3, 2, 1],
+  "DP_filters": [20, 15, 10, 5, 4, 3, 2, 1],
+
+  "NA11843":{
+      "ID": "NA11843",
+      "SM": "NA11843",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11881":{
+      "ID": "NA11881",
+      "SM": "NA11881",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11893":{
+      "ID": "NA11893",
+      "SM": "NA11893",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11919":{
+      "ID": "NA11919",
+      "SM": "NA11919",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11930":{
+      "ID": "NA11930",
+      "SM": "NA11930",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11932":{
+      "ID": "NA11932",
+      "SM": "NA11932",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11992":{
+      "ID": "NA11992",
+      "SM": "NA11992",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11994":{
+      "ID": "NA11994",
+      "SM": "NA11994",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12003":{
+      "ID": "NA12003",
+      "SM": "NA12003",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12005":{
+      "ID": "NA12005",
+      "SM": "NA12005",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+
+  "NA06984":{
+      "ID": "NA06984",
+      "SM": "NA06984",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA06986":{
+      "ID": "NA06986",
+      "SM": "NA06986",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA06994":{
+      "ID": "NA06994",
+      "SM": "NA06994",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA07048":{
+      "ID": "NA07048",
+      "SM": "NA07048",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA07051":{
+      "ID": "NA07051",
+      "SM": "NA07051",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA07347":{
+      "ID": "NA07347",
+      "SM": "NA07347",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA07357":{
+      "ID": "NA07357",
+      "SM": "NA07357",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA10851":{
+      "ID": "NA10851",
+      "SM": "NA10851",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA11829":{
+      "ID": "NA11829",
+      "SM": "NA11829",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA11831":{
+      "ID": "NA11831",
+      "SM": "NA11831",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA06985":{
+      "ID": "NA06985",
+      "SM": "NA06985",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA06989":{
+      "ID": "NA06989",
+      "SM": "NA06989",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA07000":{
+      "ID": "NA07000",
+      "SM": "NA07000",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA07037":{
+      "ID": "NA07037",
+      "SM": "NA07037",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA07056":{
+      "ID": "NA07056",
+      "SM": "NA07056",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA10847":{
+      "ID": "NA10847",
+      "SM": "NA10847",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11830":{
+      "ID": "NA11830",
+      "SM": "NA11830",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11832":{
+      "ID": "NA11832",
+      "SM": "NA11832",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11840":{
+      "ID": "NA11840",
+      "SM": "NA11840",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11892":{
+      "ID": "NA11892",
+      "SM": "NA11892",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11894":{
+      "ID": "NA11894",
+      "SM": "NA11894",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11918":{
+      "ID": "NA11918",
+      "SM": "NA11918",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11920":{
+      "ID": "NA11920",
+      "SM": "NA11920",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11931":{
+      "ID": "NA11931",
+      "SM": "NA11931",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11933":{
+      "ID": "NA11933",
+      "SM": "NA11933",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA11995":{
+      "ID": "NA11995",
+      "SM": "NA11995",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12004":{
+      "ID": "NA12004",
+      "SM": "NA12004",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12006":{
+      "ID": "NA12006",
+      "SM": "NA12006",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12044":{
+      "ID": "NA12044",
+      "SM": "NA12044",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+
+  "NA12046":{
+      "ID": "NA12046",
+      "SM": "NA12046",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  }
+}

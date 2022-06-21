@@ -1,0 +1,243 @@
+{
+  "genome_paths": {
+    "Ref_GRCh38_Default": "/scratch/amtarave/variant_calling_simulations_project/reference_genomes/GRCh38_full_analysis_set_plus_decoy_hla_DEFAULT_reformat.fa",
+    "Ref_GRCh38_Default_old": "/data/CEM/shared/public_data/references/GENCODE/GRCh38.p12.genome/GRCh38.p12.genome.fa",
+    "Ref_GRCh38_Default_old_02": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+		"Ref_GRCh38_Y_HardMasked": "/scratch/amtarave/variant_calling_simulations_project/reference_genomes/GRCh38_full_analysis_set_plus_decoy_hla_Ymasked_XX.fa",
+    "Ref_GRCh38_Y_PARsMasked": "/scratch/amtarave/variant_calling_simulations_project/reference_genomes/GRCh38_full_analysis_set_plus_decoy_hla_YPARmasked_XX.fa"
+	},
+
+  "scratch_proj_path": "/scratch/amtarave/variant_calling_simulations_project/pilot",
+  "proj_path": "/data/CEM/wilsonlab/projects/variant_calling_simulations_project/",
+
+  "1000genomes_vcf_path_old": "/scratch/amtarave/variant_calling_simulations_project/pilot/data/all_chrs/",
+  "1000genomes_vcf_path": "/beegfs/amtarave/variant_calling_simulations_project/pilot/data/all_chrs/",
+
+  "drbed": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/YPARs.bed",
+  "trPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/XPARs.bed",
+  "trNonPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/XNonPARs.bed",
+  "par_intervals": "/home/amtarave/projects/variant_calling/lists/XPARs.interval.list",
+
+
+  "neat": "/home/amtarave/packages/NEAT_2021-09-15/NEAT/",
+  "py_V3_8": "/home/amtarave/miniconda3/envs/NEAT_env/bin/python3.8",
+
+  "samples_test": [
+    "NA11831", "NA10851"
+  ],
+
+  "samples": [
+    "NA18530",
+    "NA18534",
+    "NA18536",
+    "NA18543",
+    "NA18544",
+    "NA18546",
+    "NA18548",
+    "NA18549",
+    "NA18557",
+    "NA18558",
+    "NA18559",
+    "NA18561",
+    "NA18562",
+    "NA18563",
+    "NA18572",
+    "NA18603",
+    "NA18605",
+    "NA18606",
+    "NA18608",
+    "NA18609"
+  ],
+
+  "males": [
+    "NA18530",
+    "NA18534",
+    "NA18536",
+    "NA18543",
+    "NA18544",
+    "NA18546",
+    "NA18548",
+    "NA18549",
+    "NA18557",
+    "NA18558",
+    "NA18559",
+    "NA18561",
+    "NA18562",
+    "NA18563",
+    "NA18572",
+    "NA18603",
+    "NA18605",
+    "NA18606",
+    "NA18608",
+    "NA18609"
+  ],
+
+  "females": [
+    "None"
+
+  ],
+
+  "chrY": ["chrY"],
+  "chrX": ["chrX"],
+  "chr8": ["chr8"],
+
+  "sex_chrs": ["chrX", "chrY"],
+  "autosomes_test": ["chr4", "chr5"],
+  "autosomes_chrM": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrM"
+  ],
+  "chromosomes_all": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY"
+  ],
+  "chromosomes": [
+    "chr8", "chrX", "chrY", "chrM"
+  ],
+
+  "filtering_options": ["gatkHardFilter"],
+
+  "gatkHardFilter":{
+    "QD": 2.0,
+    "QUAL": 30.0,
+    "SOR": 3.0,
+    "FS": 60.0,
+    "MQ": 40.0,
+    "MQRankSum": -12.5,
+    "ReadPosRankSum": -8.0
+  },
+
+  "QD_filters": [1.0, 1.5, 2.0, 12.0, 16.0, 20.0, 28.0],
+  "QUAL_filters": [30.0],
+  "SOR_filters": [3.0],
+  "FS_filters": [60.0],
+  "MQ_filters": [20.0, 30.0, 40.0, 50.0, 60.0],
+  "MQRankSum_filters": [-12.5],
+  "ReadPosRankSum_filters": [-8.0],
+  "AN_filters": [20, 15, 10, 5],
+  "DP_filters": [20, 15, 10, 5],
+
+  "NA18530":{
+      "ID": "NA18530",
+      "SM": "NA18530",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18534":{
+      "ID": "NA18534",
+      "SM": "NA18534",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18536":{
+      "ID": "NA18536",
+      "SM": "NA18536",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18543":{
+      "ID": "NA18543",
+      "SM": "NA18543",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18544":{
+      "ID": "NA18544",
+      "SM": "NA18544",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18546":{
+      "ID": "NA18546",
+      "SM": "NA18546",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18548":{
+      "ID": "NA18548",
+      "SM": "NA18548",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18549":{
+      "ID": "NA18549",
+      "SM": "NA18549",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18557":{
+      "ID": "NA18557",
+      "SM": "NA18557",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18558":{
+      "ID": "NA18558",
+      "SM": "NA18558",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18559":{
+      "ID": "NA18559",
+      "SM": "NA18559",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18561":{
+      "ID": "NA18561",
+      "SM": "NA18561",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18562":{
+      "ID": "NA18562",
+      "SM": "NA18562",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18563":{
+      "ID": "NA18563",
+      "SM": "NA18563",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18572":{
+      "ID": "NA18572",
+      "SM": "NA18572",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18603":{
+      "ID": "NA18603",
+      "SM": "NA18603",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18605":{
+      "ID": "NA18605",
+      "SM": "NA18605",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18606":{
+      "ID": "NA18606",
+      "SM": "NA18606",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18608":{
+      "ID": "NA18608",
+      "SM": "NA18608",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  },
+  "NA18609":{
+      "ID": "NA18609",
+      "SM": "NA18609",
+      "LB": "NEAT",
+      "PL": "NEAT"
+  }
+
+}

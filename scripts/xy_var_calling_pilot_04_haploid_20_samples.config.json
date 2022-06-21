@@ -1,0 +1,79 @@
+{
+  "genome_paths": {
+    "Ref_GRCh38_Default": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+		"Ref_GRCh38_Y_HardMasked": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla_Ymasked_XX.fa",
+		"Ref_GRCh38_Y_PARsMasked": "/data/CEM/shared/public_data/references/1000genomes_GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla_YPARmasked_XX.fa"
+	},
+
+  "scratch_proj_path": "/data/CEM/wilsonlab/projects/variant_calling_simulations_project",
+
+  "drbed": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/YPARs.bed",
+  "trPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/xPARS.bed",
+  "trNonPARs": "/home/amtarave/projects/variant_calling_simulations_project/pilot/lists/xNonPARS.bed",
+  "par_intervals": "/home/amtarave/projects/variant_calling/lists/XPARs.interval.list",
+
+  "neat": "/home/amtarave/packages/NEAT_2021-09-15/NEAT/",
+  "py_V3_8": "/home/amtarave/miniconda3/envs/NEAT_env/bin/python3.8",
+
+  "compare_VCFs_path": ["/data/CEM/wilsonlab/projects/variant_calling_simulations_project/scripts/"],
+
+  "samples_test": [
+    "NA06994"
+  ],
+
+  "samples": [
+    "NA06984",
+    "NA06986",
+    "NA06994",
+    "NA07048",
+    "NA07051",
+    "NA07347",
+    "NA07357",
+    "NA10851",
+    "NA11829",
+    "NA11831",
+    "NA11843",
+    "NA11881",
+    "NA11893",
+    "NA11919",
+    "NA11930",
+    "NA11932",
+    "NA11992",
+    "NA11994",
+    "NA12003",
+    "NA12005"
+  ],
+  "chromosomes": [
+    "chr8", "chrX", "chrY", "chrM"
+  ],
+  "sex_chrs": [
+    "chrX", "chrY"
+  ],
+  "chrY": ["chrY"],
+  "chrX": ["chrX"],
+  "autosomes": ["chr8"],
+  "chrM": ["chrM"],
+
+  "autosomes_all": [
+    "chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+    "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+    "chr17", "chr18", "chr19", "chr20", "chr21", "chr22"
+  ],
+
+  "QD_filters": [1.0, 1.5, 2.0, 12.0, 16.0, 20.0, 28.0],
+  "QUAL_filters": [30.0],
+  "SOR_filters": [3.0],
+  "FS_filters": [60.0],
+  "MQ_filters": [20.0, 30.0, 40.0, 50.0, 60.0],
+  "MQRankSum_filters": [-12.5],
+  "ReadPosRankSum_filters": [-8.0],
+  "AN_filters": [20, 15, 10, 5, 4, 3, 2, 1],
+  "DP_filters": [20, 15, 10, 5, 4, 3, 2, 1],
+
+  "vcf_files": [
+    "chr8_GRCh38_YPARsMasked_gatk_diploid_called_raw_SNPs_gatkHardFilter.vcf.gz.vcf.gz",
+    "chrY_GRCh38_YPARsMasked_gatk_diploid_called_raw_SNPs_gatkHardFilter.vcf.gz.vcf.gz",
+    "chrX_GRCh38_YPARsMasked_gatk_diploid_called_SNPs_gatkHardFilter_filtered_nonPARs.vcf.gz"
+  ]
+
+}
