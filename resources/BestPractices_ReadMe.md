@@ -38,10 +38,10 @@ samtools faidx ../GCA_009914755.4_CHM13_T2T_v2.0_genomic.fna CP068277.2 CP068276
 
 # Merge Y hard masked fa and Y PARs masked fa, separately to make each of the SCC references.
 # YHardMasked
-cat GCA_009914755.4_CHM13_T2T_v2.0_genomic_chr1-22_chrX_chrM.fa T2T_chrY_YHardMasked.fasta > GCA_009914755.4_CHM13_T2T_v2.0_genomic_YHardMasked_unsorted.fa
+cat GCA_009914755.4_CHM13_T2T_v2.0_genomic_chr1-22_chrX_chrM.fa T2T_chrY_YHardMasked.fasta > SCC_ref_XX.fa
 
 # YPARsMasked
-cat GCA_009914755.4_CHM13_T2T_v2.0_genomic_chr1-22_chrX_chrM.fa T2T_chrY_YPARs_masked.fasta > GCA_009914755.4_CHM13_T2T_v2.0_genomic_YPARsMasked_unsorted.fa
+cat GCA_009914755.4_CHM13_T2T_v2.0_genomic_chr1-22_chrX_chrM.fa T2T_chrY_YPARs_masked.fasta > SCC_ref_XY.fa
 
 ```
 
