@@ -20,6 +20,7 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/GRCh38.p
 
 ## Mask Y chromosome and Y PARs
 #   Run `bedtools maskfasta` to replace the PAR sequences on chromosome Y with Ns and the entire Y chromosome.
+#   This assumes that you know the position of the PAR regions on the Y chromosome of your reference genome sequence.
 
 # Make bed files for the Y PAR coordinates and entire Y chromosome
 awk '{ print $1"\t"$2"\t"$3 }' T2T_chrY_PARs.txt > T2T_chrY_PARs.bed
