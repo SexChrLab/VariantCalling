@@ -29,6 +29,8 @@ awk '{ print $1"\t"$2"\t"$3 }' T2T_chrY.txt > T2T_chrY.bed
 bedtools maskfasta -fi T2T_chrY.fa -bed T2T_chrY_PARs.bed -fo T2T_chrY_YPARs_masked.fa
 
 bedtools maskfasta -fi T2T_chrY.fa -bed T2T_chrY.bed -fo T2T_chrY_YHardMasked.fa
+
+
 # Extract chr 1-22, M and X from T2T reference.
 
 samtools faidx ../GCA_009914755.4_CHM13_T2T_v2.0_genomic.fna CP068277.2 CP068276.2 CP068275.2 CP068274.2 CP068273.2 CP068272.2 CP068271.2 CP068270.2 CP068269.2 CP068268.2 CP068267.2 CP0    68266.2 CP068265.2 CP068264.2 CP068263.2 CP068262.2 CP068261.2 CP068260.2 CP068259.2 CP068258.2 CP068257.2 CP068256.2 CP068255.2 CP068254.1 > GCA_009914755.4_CHM13_T2T_v2.0_genomic_chr1-22_chrX_chrM.fa
