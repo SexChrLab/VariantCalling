@@ -85,7 +85,7 @@ gatk --java-options '-Xmx4g' HaplotypeCaller -R SCC_ref_XY.fa -I XY_sample_sorte
 gatk CombineGVCFs -R SCC_ref_XY.fa XY_sample*_chrX_nonPAR_haploid.g.vcf.gz -L "chrX" -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O combined_XY_YPARsMasked_haploid.g.vcf.gz
 
 # Then joint genotype
-gatk GenotypeGVCFs -R SCC_ref_XY.fa -V combined_XY_YPARsMasked_haploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O rawSNPs_XY_YPARsMasked_haploid.g.vcf.gz
+gatk GenotypeGVCFs -R SCC_ref_XY.fa -V combined_XY_YPARsMasked_haploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O variants_XY_YPARsMasked_haploid.g.vcf.gz
 
 ```
 
@@ -99,8 +99,26 @@ gatk --java-options '-Xmx4g' HaplotypeCaller -R SCC_ref_XX.fa -I XX_sample_sorte
 gatk CombineGVCFs -R SCC_ref_XX.fa XX_sample*_YHardMasked_diploid.g.vcf.gz -L "chrX" -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O combined_XX_YHardMasked_diploid.g.vcf.gz
 
 # Then joint genotype
-gatk GenotypeGVCFs -R SCC_ref_XY.fa -V combined_XX_YHardMasked_diploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O rawSNPs_XX_YHardMasked_diploid.g.vcf.gz
+gatk GenotypeGVCFs -R SCC_ref_XX.fa -V combined_XX_YHardMasked_diploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O variants_XX_YHardMasked_diploid.g.vcf.gz
 
 ```
 
 ## Filter
+After variants have been called, can select for SNPs and/or filter for by the quality of the variant calls.  You can apply the values that you think are best (included below in the 'params').
+
+For XY individuals, here is example code:
+```
+gatk --java-options "-Xmx10g" SelectVariants -R SCC_ref_XY.fa -V variants_XY_YPARsMasked_haploid.g.vcf.gz -O SNPs_XY_YPARsMasked_haploid.g.vcf.gz --select-type-to-include SNP
+gatk VariantFiltration -R SCC_ref_XY.fa -V SNPs_XY_YPARsMasked_haploid.g.vcf.gz -L chrX -filter "QD < {params.qd}" --filter-name "QD{params.qd}" -filter "QUAL < {params.qual}" --filter-name "QUAL{params.qual}" -filter "SOR > {params.sor}" --filter-name "SOR{params.sor}" -filter "FS > {params.fs}" --filter-name "FS{params.fs}" -filter "MQ < {params.mq}" --filter-name "MQ{params.mq}" -filter "MQRankSum < {params.mqranksum}" --filter-name "MQRankSum{params.mqranksum}" -filter "ReadPosRankSum < {params.readposranksum}" --filter-name "ReadPosRankSum{params.readposranksum}" -O variants_XY_YPARsMasked_haploid_intermediate_filtered.g.vcf.gz
+
+gatk --java-options "-Xmx16g" SelectVariants -R SCC_ref_XY.fa -V variants_XY_YPARsMasked_haploid_intermediate_filtered.g.vcf.gz -L chrX --exclude-filtered -O variants_XY_YPARsMasked_haploid.filtered.g.vcf.gz
+
+```
+For XX individuals, here is example code:
+```
+
+gatk --java-options "-Xmx10g" SelectVariants -R SCC_ref_XX.fa -V variants_XX_YHardMasked_haploid.g.vcf.gz -O SNPs_XX_YHardMasked_haploid.g.vcf.gz --select-type-to-include SNP
+gatk VariantFiltration -R SCC_ref_XX.fa -V SNPs_XX_YHardMasked_diploid.g.vcf.gz -L chrX -filter "QD < {params.qd}" --filter-name "QD{params.qd}" -filter "QUAL < {params.qual}" --filter-name "QUAL{params.qual}" -filter "SOR > {params.sor}" --filter-name "SOR{params.sor}" -filter "FS > {params.fs}" --filter-name "FS{params.fs}" -filter "MQ < {params.mq}" --filter-name "MQ{params.mq}" -filter "MQRankSum < {params.mqranksum}" --filter-name "MQRankSum{params.mqranksum}" -filter "ReadPosRankSum < {params.readposranksum}" --filter-name "ReadPosRankSum{params.readposranksum}" -O variants_XX_YHardMasked_diploid_intermediate_filtered.g.vcf.gz
+
+gatk --java-options "-Xmx16g" SelectVariants -R SCC_ref_XX.fa -V variants_XX_YHardMasked_diploid_intermediate_filtered.g.vcf.gz -L chrX --exclude-filtered -O variants_XX_YHardMasked_diploid.filtered.g.vcf.gz
+```
