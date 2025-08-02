@@ -79,15 +79,27 @@ For XY individuals, here is example code:
 ```
 # 1. Non-PARs chromosome X
 # Call variants per sample with HaplotypeCaller
-gatk --java-options '-Xmx4g' HaplotypeCaller -R SCC_ref_XX.fa -I XY_sample_sorted_mkdups.bam -L chrY -XL YPARs.interval.list -ploidy 1 -O XY_sample_chrY_nonPARs_haploid.g.vcf.gz -ERC GVCF
+gatk --java-options '-Xmx4g' HaplotypeCaller -R SCC_ref_XY.fa -I XY_sample_sorted_mkdups.bam -L chrY -XL YPARs.interval.list -ploidy 1 -O XY_sample_chrX_nonPARs_haploid.g.vcf.gz -ERC GVCF
 
 # After all sample's gvcfs have been generated combine all samples
+gatk CombineGVCFs -R SCC_ref_XY.fa XY_sample*_chrX_nonPAR_haploid.g.vcf.gz -L "chrX" -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O combined_XY_YPARsMasked_haploid.g.vcf.gz
 
 # Then joint genotype
+gatk GenotypeGVCFs -R SCC_ref_XY.fa -V combined_XY_YPARsMasked_haploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O rawSNPs_XY_YPARsMasked_haploid.g.vcf.gz
+
 ```
 
 For XX individuals, here is example code:
 ```
+# 1. Non-PARs chromosome X
+# Call variants per sample with HaplotypeCaller
+gatk --java-options '-Xmx4g' HaplotypeCaller -R SCC_ref_XX.fa -I XX_sample_sorted_mkdups.bam -L chrX -XL YPARs.interval.list -ploidy 2 -O XX_sample_chrX_XnonPARs_diploid.g.vcf.gz -ERC GVCF
+
+# After all sample's gvcfs have been generated combine all samples
+gatk CombineGVCFs -R SCC_ref_XX.fa XX_sample*_YHardMasked_diploid.g.vcf.gz -L "chrX" -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O combined_XX_YHardMasked_diploid.g.vcf.gz
+
+# Then joint genotype
+gatk GenotypeGVCFs -R SCC_ref_XY.fa -V combined_XX_YHardMasked_diploid.g.vcf.gz -L chrX -XL chrX:10001-2781479 -XL chrX:155701383-156030895 -O rawSNPs_XX_YHardMasked_diploid.g.vcf.gz
 
 ```
 
